@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blissfull Tresses Salon</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playwright&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.0/css/line.css">
+    <!-- tialwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              prim: "#B85042", // Add your custom color here
+              sec: "#E7E8D1", // Add more custom colors as needed
+              acc: "#A7BEAE", // Add more custom colors as needed
+              par: "#FAFAFA", // Add more custom colors as needed
+              gr: "#696969", // Add more custom colors as needed
+              bl: "#212427", // Add more custom colors as needed
+            },
+          },
+        },
+      };
+    </script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link==
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+      * {
+        font-family: "Poppins", sans-serif;
+        scroll-behavior: smooth;
+      }
+      *::-webkit-scrollbar {
+        display: none;
+      }
+      .text-up{
+        transform: translateY(-2px);
+        margin: none;
+      }
+      .logo {
+        font-family: "Playwrite CU", cursive;
+      }
+      .transition-padding {
+        transition: padding 0.3s ease;
+      }
+      /* CSS untuk dropdown */
+      .group:hover .group-hover\:block {
+        display: block;
+      }
+      #navbar {
+      transition: transform 0.3s ease-in-out;
+      }
+
+      .navbar-hidden {
+      transform: translateY(-100%);
+      }
+      #searchBox {
+       z-index: 100;
+      }
+    </style>
+  </head>
+  <body class="overflow-x-hidden w-full">
+    <main class="w-full min-h-[4000px] bg-sec relative">
+      <!-- top announcement -->
+      <div class="top items-center justify-center" id="promo">
+        <p
+          class="uppercase font-semibold text-center text-prim bg-acc md:text-lg text-sm text-up"
+        >
+          PROMO 15% OFF
+        </p>
+      </div>
+      <!-- top announcement -->
+
+      <!-- navbar -->
+      <!-- navbar -->
+      <nav
+        id="navbar"
+        class="z-20 fixed top-5 left-0 w-full px-8 py-4 bg-purple-700 shadow-md text-white flex items-center justify-between transition-padding"
+      >
+        <!-- Open Menu Button -->
+        <i
+          class="uil uil-bars text-2xl cursor-pointer navOpenBtn md:hidden"
+          onclick="openSidebar()"
+        ></i>
+
+        <!-- Logo -->
+        <a href="#" class="logo flex items-center">Blissfull Tresses</a>
+
+        <!-- Navigation Links -->
+        <ul class="hidden md:flex items-center space-x-8">
+          <li><a href="index.html" class="hover:text-gray-300 transition">Home</a></li>
+          <li>
+            <a href="#about" class="hover:text-gray-300 transition">About Us</a>
+          </li>
+          <li class="relative">
+            <a href="#service" onclick="toggleDropdown(event)" class="hover:text-gray-300 transition flex items-center cursor-pointer">
+              Service
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7 10L12 15L17 10H7Z" fill="currentColor" />
+              </svg>
+            </a>
+            <ul
+              id="dropdown-menu"
+              class="absolute right-0 mt-7 top-0 ml-2 hidden w-56 bg-white text-black rounded shadow-lg z-20"
+            >
+            <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">Hair Treatment</a></li>
+            <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">Body Treatment</a></li>
+            <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">Hairdress</a></li>
+            <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">Haircut</a></li>
+            <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">Eyelash Extension</a></li>
+            <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">Make Up</a></li>
+            <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">Nail Art</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#gallery" class="hover:text-gray-300 transition">Gallery</a>
+          </li>
+          <li>
+            <a href="#contact" class="hover:text-gray-300 transition">Contact</a>
+          </li>
+          <!-- lainnya -->
+        </ul>
+
+        <div class="relative">
+          <!-- Icon Search -->
+          <i id="searchIcon" class="uil uil-search text-xl cursor-pointer"></i>
+          
+          <!-- Search Box -->
+          <div
+            id="searchBox"
+            class="absolute hidden top-0 right-6 w-[300px] -mt-3.5 bg-white text-black rounded-md shadow-lg p-2 flex items-center"
+          >
+            <input
+              type="text"
+              placeholder="Search here..."
+              class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+            />
+            <!-- Icon Close -->
+            <i id="closeIcon" class="uil uil-times text-xl cursor-pointer ml-2"></i>
+          </div>
+        </div>
+        
+        
+
+        <!-- Close Menu Button (Mobile) -->
+        <i
+          class="uil uil-times text-2xl cursor-pointer navCloseBtn hidden md:hidden"
+        ></i>
+      </nav>
+      <!-- navbar -->
+
+      <!-- Sidebar for Mobile Menu -->
+      <div
+        id="sidebar"
+        class="sidebar hidden fixed top-0 left-0 w-2/3 h-full bg-prim p-5 z-30 flex flex-col text-par"
+      >
+        <i
+          class="uil uil-times text-2xl cursor-pointer self-end"
+          onclick="closeSidebar()"
+        ></i>
+        <ul class="mt-10 space-y-4">
+          <li><a href="index.html" class="hover:text-gray-300 transition">Home</a></li>
+          <li>
+            <a href="#about" class="hover:text-gray-300 transition">About Us</a>
+          </li>
+          <li class="relative">
+            <a href="#service" onclick="toggleDropdown(event)" class="hover:text-gray-300 transition flex items-center cursor-pointer">
+              Service
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7 10L12 15L17 10H7Z" fill="currentColor" />
+              </svg>
+            </a>
+            <ul
+              id="dropdown-menu"
+              class="absolute right-0 mt-7 top-0 ml-2 hidden w-56 bg-white text-black rounded-md shadow-lg z-20"
+            >
+              <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">Hair Treatment</a></li>
+              <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">Body Treatment</a></li>
+              <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">Hairdress</a></li>
+              <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">Haircut</a></li>
+              <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">Eyelash Extension</a></li>
+              <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">Make Up</a></li>
+              <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">Nail Art</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#gallery" class="hover:text-gray-300 transition">gallery</a>
+          </li>
+          <li>
+            <a href="#contact" class="hover:text-gray-300 transition">Contact Us</a>
+          </li>
+        </ul>
+      </div>
+      </nav>
+      <!-- end Sidebar -->
+
+      <!-- navbar -->
+
+      <!-- aside -->
+
+      <!-- aside -->
+
+      <!-- header -->
+      <header
+        class="w-full min-h-[89vh] bg-[url(./assets/header.jpg)] bg-cover bg-center"
+      >
+        <div
+          class="cont text-par grid place-content-center backdrop-brightness-50 w-full min-h-[89vh] gap-7"
+        >
+          <div class="paragraph inline-flex flex-col items-center">
+            <h1
+              class="font-bold text-3xl md:text-5xl text-center lg:text-7xl md:m-0 mb-2"
+            >
+              Welcome To Our Salon
+            </h1>
+            <p
+              class="font-medium lg:text-lg text-xs md:text-base text-center mx-6 md:mx-0"
+            >
+              "Experience a world-class hair transformation with our team of
+              skilled stylists who bring <br class="hidden md:flex" />
+              out the best in your unique hair texture and style."
+            </p>
+          </div>
+          <div
+            class="btn font-medium text-xs md:text-lg text-par inline-flex gap-9 items-center justify-center"
+          >
+            <a href="" class="bg-prim p-2 px-5 rounded-lg gap-1"
+              >Book Now <i class="ri-arrow-right-line"></i
+            ></a>
+            <a href="" class="inline-flex items-center gap-1"
+              >Check On Maps <i class="ri-map-pin-line"></i
+            ></a>
+          </div>
+          <div class="sosmed inline-flex items-center justify-center gap-4">
+            <a
+              href=""
+              class="inline-flex md:w-12 md:h-12 w-9 h-9 items-center justify-center bg-prim rounded-full"
+              ><i class="ri-whatsapp-line ri-lg md:ri-2x text-par"></i
+            ></a>
+            <a
+              href=""
+              class="inline-flex md:w-12 md:h-12 w-9 h-9 items-center justify-center bg-prim rounded-full"
+              ><i class="ri-instagram-line ri-lg md:ri-2x text-par"></i
+            ></a>
+            <a
+              href=""
+              class="inline-flex md:w-12 md:h-12 w-9 h-9 items-center justify-center bg-prim rounded-full"
+              ><i class="ri-facebook-fill ri-lg md:ri-2x text-par"></i
+            ></a>
+          </div>
+        </div>
+      </header>
+      <!-- header -->
+
+      <!-- about -->
+      <section id="about" class="z-1 w-full max-h-screen">
+        <div
+          class="cont w-full inline-flex items-center justify-center relative"
+        >
+          <div
+            class="image bg-[url(./assets/about.jpg)] xl:w-1/2 w-full min-h-screen xl:min-h-[900px] bg-cover bg-center grid place-content-center left-0"
+          >
+            <div
+              class="content text-par w-full h-full xl:inline-flex flex-col items-center hidden"
+            >
+              <i class="ri-lightbulb-line ri-9x"></i>
+              <h class="font-light italic text-3xl">
+                "Make your dream hair come true with us"
+              </h>
+            </div>
+          </div>
+          <div
+            class="text-section w-full xl:w-1/2 xl:min-h-[900px] min-h-screen flex flex-col justify-center xl:bg-sec xl:right-0 px-7 sm:px-20 absolute z-10 xl:relative backdrop-brightness-50 xl:backdrop-brightness-100"
+          >
+            <div
+              class="parent xl:text-start text-center xl:text-prim text-par space-y-6 inline-flex flex-col items-center xl:items-start"
+            >
+              <h1 class="font-bold text-2xl sm:text-5xl">About the Salon</h1>
+              <p class="font-medium text-base sm:text-xl">
+                Welcome to our salon, where beauty meets quality. We offer
+                expert haircuts, hairdress, and hair treatment to help you look
+                and feel your best. Our experienced team is dedicated to
+                delivering top-notch service and personalized care. Discover a
+                new level of style and satisfaction with us.
+              </p>
+              <a
+                href=""
+                class="bg-prim p-2 px-5 rounded-lg text-par w-44 text-center"
+                >Contact Us<i class="ri-phone-line ml-3"></i
+              ></a>
+              <div
+                class="feature 2xl:flex xl:space-y-0 xl:justify-around space-x-9 space-y-3 items-center xl:hidden justify-center hidden"
+              >
+                <div class="1 inline-flex flex-col items-center">
+                  <i class="ri-vip-crown-line ri-3x"></i>
+                  <p class="font-semibold text-2xl">Best Services</p>
+                </div>
+                <div class="1 flex flex-col items-center">
+                  <i class="ri-shield-user-line ri-3x"></i>
+                  <p class="font-semibold text-2xl">Profesional</p>
+                </div>
+                <div class="1 flex flex-col items-center">
+                  <i class="ri-user-star-line ri-3x"></i>
+                  <p class="font-semibold text-2xl">Customer Choice</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- about -->
+
+      <!-- sevice -->
+      <section id="service" class="mt-0 w-full md:mt-40 w-full min-h-screen bg-acc">
+        <div class="cont py-10 px-4 md:px-32 w-full h-full space-y-11">
+          <div class="mt-0 md:mt-40 heading text-prim">
+            <h1 class="text-center whitespace-nowrap text-4xl font-bold">
+              Our Service
+            </h1>
+            <p class="text-center font-medium text-xl">
+              Step into our modern salon and indulge in a pampering experience,
+              where advanced hair treatments <br />
+              meet a serene and inviting atmosphere.
+            </p>
+          </div>
+
+          <!-- Tambahkan overflow-x-auto dan ubah grid menjadi flex -->
+          <div
+            class="cardd-sec w-full flex space-x-6 overflow-x-auto snap-x snap-mandatory scroll-smooth rounded"
+           >
+            <!-- div card -->
+            <div
+              class="cart-item-1 min-w-[300px] md:min-w-[443px] h-[400px] md:h-[581px] bg-sec flex flex-col justify-between overflow-hidden rounded-lg shadow-lg text-prim snap-center"
+             >
+              <div class="par">
+                <img src="./assets/hairTreatment.jpeg" alt="" />
+                <div class="par p-4 md:p-6">
+                  <h1 class="font-semibold text-2xl md:text-3xl">Hair Treatment</h1>
+                  <p class="font-medium text-lg md:text-xl">
+                    Restore shine and strength with nourishing hair treatments! Visit today for vibrant hair.
+                  </p>
+                </div>
+              </div>
+              <a
+                href=""
+                class="font-semibold text-lg p-6 md:p-8 -mt-9 justify-end items-end flex gap-1 hover:underline"
+                >Book<i class="ri-arrow-right-line"></i
+              ></a>
+            </div>
+            <div
+              class="cart-item-1 min-w-[300px] md:min-w-[443px] h-[400px] md:h-[581px] bg-sec flex flex-col justify-between overflow-hidden rounded-lg shadow-lg text-prim snap-center"
+            >
+              <div class="par">
+                <img src="./assets/BodyTreatment.jpg" alt="" />
+                <div class="par p-4 md:p-6">
+                  <h1 class="font-semibold text-2xl md:text-3xl">Body Treatment</h1>
+                  <p class="font-medium text-lg md:text-xl">
+                    Relax and unwind with a soothing body massage! Relieve tension and feel rejuvenated today.
+                  </p>
+                </div>
+              </div>
+              <a
+                href=""
+                class="font-semibold text-lg p-6 md:p-8 -mt-9 justify-end items-end flex gap-1 hover:underline"
+                >Book<i class="ri-arrow-right-line"></i
+              ></a>
+            </div>
+            <!-- div card -->
+            <div
+              class="cart-item-1 min-w-[300px] md:min-w-[443px] h-[400px] md:h-[581px] bg-sec flex flex-col justify-between overflow-hidden rounded-lg shadow-lg text-prim snap-center"
+            >
+              <div class="par">
+                <img src="./assets/dress.jpg" alt="" />
+                <div class="par p-4 md:p-6">
+                  <h1 class="font-semibold text-2xl md:text-3xl">HAIRDRESS</h1>
+                  <p class="font-medium text-lg md:text-xl">
+                    Get a stylish hairdo at our salon! Our expert stylists are
+                    ready to create
+                  </p>
+                </div>
+              </div>
+              <a
+                href=""
+                class="font-semibold text-lg p-6 md:p-8 -mt-5 justify-end items-end flex gap-1 hover:underline"
+                >Book<i class="ri-arrow-right-line"></i
+              ></a>
+            </div>
+            <!-- div card -->
+            <div
+              class="cart-item-1 min-w-[300px] md:min-w-[443px] h-[400px] md:h-[581px] bg-sec flex flex-col justify-between overflow-hidden rounded-lg shadow-lg text-prim snap-center"
+            >
+              <div class="par">
+                <img src="./assets/haircut.jpg" alt="" />
+                <div class="par p-4 md:p-6">
+                  <h1 class="font-semibold text-2xl md:text-3xl">
+                    Haircut
+                  </h1>
+                  <p class="font-medium text-lg md:text-xl">
+                    Enjoy a fresh cut designed for you! Visit our salon to find your perfect style.
+                  </p>
+                </div>
+              </div>
+              <a
+                href=""
+                class="font-semibold text-lg p-6 md:p-8 -mt-5 justify-end items-end flex gap-1 hover:underline"
+                >Book<i class="ri-arrow-right-line"></i
+              ></a>
+            </div>
+            <!-- div card -->
+             <div
+              class="cart-item-1 min-w-[300px] md:min-w-[443px] h-[400px] md:h-[581px] bg-sec flex flex-col justify-between overflow-hidden rounded-lg shadow-lg text-prim snap-center"
+            >
+              <div class="par">
+                <img src="./assets/EyeLash.jpg" alt="" />
+                <div class="par p-4 md:p-6">
+                  <h1 class="font-semibold text-2xl md:text-3xl">
+                    Eyelash Extension
+                  </h1>
+                  <p class="font-medium text-lg md:text-xl">
+                    Add length and volume to lashes! Achieve a natural or bold look with us.
+                  </p>
+                </div>
+              </div>
+              <a
+                href=""
+                class="font-semibold text-lg p-6 md:p-8 -mt-5 justify-end items-end flex gap-1 hover:underline"
+                >Book<i class="ri-arrow-right-line"></i
+              ></a>
+            </div>
+           <!-- div card -->
+             <div
+              class="cart-item-1 min-w-[300px] md:min-w-[443px] h-[400px] md:h-[581px] bg-sec flex flex-col justify-between overflow-hidden rounded-lg shadow-lg text-prim snap-center"
+            >
+              <div class="par">
+                <img src="./assets/MakeUp.jpg" alt="" />
+                <div class="par p-4 md:p-6">
+                  <h1 class="font-semibold text-2xl md:text-3xl">
+                    Make Up
+                  </h1>
+                  <p class="font-medium text-lg md:text-xl">
+                    Look stunning with our professional makeup! Perfect for any event or special day.
+                  </p>
+                </div>
+              </div>
+              <a
+                href=""
+                class="font-semibold text-lg p-6 md:p-8 -mt-5 justify-end items-end flex gap-1 hover:underline"
+                >Book<i class="ri-arrow-right-line"></i
+              ></a>
+            </div>
+           <!-- div card -->
+           <div
+           class="cart-item-1 min-w-[300px] md:min-w-[443px] h-[400px] md:h-[581px] bg-sec flex flex-col justify-between overflow-hidden rounded-lg shadow-lg text-prim snap-center"
+         >
+           <div class="par">
+             <img src="./assets/nailArt.jpg" alt="" />
+             <div class="par p-4 md:p-6">
+               <h1 class="font-semibold text-2xl md:text-3xl">
+                 Nail Art
+               </h1>
+               <p class="font-medium text-lg md:text-xl">
+                Express yourself with creative designs! Visit us to try trendy and unique styles.
+               </p>
+             </div>
+           </div>
+           <a
+             href=""
+             class="font-semibold text-lg p-6 md:p-8 -mt-5 justify-end items-end flex gap-1 hover:underline"
+             >Book<i class="ri-arrow-right-line"></i
+           ></a>
+         </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- sevice -->
+
+      <!-- gallery -->
+      <section id="gallery" class="text-center w-full min-h-screen bg-sec">
+        <div class="cont py-28 px-20 w-full h-full space-y-11">
+          <div class="heading text-prim">
+            <h1 class="text-6xl font-bold">Gallery</h1>
+            <p class="text-center font-medium text-xl">
+              Step into our modern salon and indulge in a pampering experience,
+              where advanced hair treatments <br />
+              meet a serene and inviting atmosphere.
+            </p>
+          </div>
+          <div class="image-cont flex flex-col items-center gap-5">
+            <!-- grid-separator -->
+            <div
+              class="bg-contain sec-1 flex items-center justify-center gap-5"
+            >
+              <img
+                src="./assets/gallery/1.jpg"
+                alt=""
+                class="object-cover w-[411px] h-[300px] rounded-lg shadow-lg"
+              />
+              <img
+                src="./assets/gallery/2.jpg"
+                alt=""
+                class="object-cover object-right w-[411px] h-[300px] rounded-lg shadow-lg"
+              />
+              <img
+                src="./assets/gallery/3.jpg"
+                alt=""
+                class="object-cover w-[411px] h-[300px] rounded-lg shadow-lg"
+              />
+              <img
+                src="./assets/gallery/4.jpg"
+                alt=""
+                class="object-cover w-[411px] h-[300px] rounded-lg shadow-lg"
+              />
+            </div>
+            <!-- grid-separator -->
+            <!-- grid-separator -->
+            <div class="sec-1 flex items-center justify-center gap-5">
+              <img
+                src="./assets/gallery/5.jpg"
+                alt=""
+                class="object-cover w-[411px] h-[300px] rounded-lg shadow-lg"
+              />
+              <img
+                src="./assets/gallery/6.jpg"
+                alt=""
+                class="object-cover w-[411px] h-[300px] rounded-lg shadow-lg"
+              />
+              <img
+                src="./assets/gallery/7.jpg"
+                alt=""
+                class="object-cover w-[411px] h-[300px] rounded-lg shadow-lg"
+              />
+              <img
+                src="./assets/gallery/8.jpg"
+                alt=""
+                class="object-cover w-[411px] h-[300px] rounded-lg"
+              />
+            </div>
+            <!-- grid-separator -->
+            <!-- grid-separator -->
+            <div class="sec-1 flex items-center justify-center gap-5">
+              <img
+                src="./assets/gallery/9.jpg"
+                alt=""
+                class="object-cover w-[552px] h-[300px] rounded-lg shadow-lg"
+              />
+              <img
+                src="./assets/gallery/10.jpg"
+                alt=""
+                class="object-cover w-[552px] h-[300px] rounded-lg shadow-lg"
+              />
+              <img
+                src="./assets/gallery/11.jpg"
+                alt=""
+                class="object-cover w-[552px] h-[300px] rounded-lg shadow-lg"
+              />
+            </div>
+            <!-- grid-separator -->
+          </div>
+        </div>
+      </section>
+      <!-- gallery -->
+
+      <!-- footer -->
+      <footer id="contact" class="w-full min-h-[700px] bg-prim text-par">
+        <div
+          class="cont py-10 px-4 md:px-20 w-full flex flex-col md:flex-row gap-8"
+        >
+          <!-- Text Area - Left Section -->
+          <div class="text-area w-full md:w-1/3 flex flex-col gap-6">
+            <h1 class="text-4xl md:text-5xl font-bold">Contact Us</h1>
+            <div class="detail flex flex-col gap-4 text-lg">
+              <div>
+                <p class="font-semibold">Phone</p>
+                <p class="font-medium">123-456-789</p>
+              </div>
+              <div>
+                <p class="font-semibold">Email</p>
+                <p class="font-medium">info@blissful.com</p>
+              </div>
+              <div>
+                <p class="font-semibold">Address</p>
+                <p class="font-medium">123 Main Street, USA</p>
+              </div>
+            </div>
+            <div class="mt-4">
+              <a href="" class="bg-par text-prim font-bold p-3 px-5 rounded-lg"
+                >Book An Appointment <i class="ri-arrow-right-line"></i
+              ></a>
+            </div>
+          </div>
+
+          <!-- Contact Form - Right Section -->
+          <div class="form w-full md:w-2/3 bg-slate-100 rounded-lg p-8">
+            <form action="" class="w-full flex flex-col gap-6">
+              <h1 class="font-semibold text-2xl md:text-3xl text-prim">
+                Get In Touch
+              </h1>
+              <div class="flex flex-col gap-5">
+                <div class="flex flex-col items-start gap-1">
+                  <label for="username" class="text-bl font-medium"
+                    >Name :</label
+                  >
+                  <input
+                    type="text"
+                    class="text-bl p-3 rounded-lg w-full outline-none placeholder:text-gr"
+                    name="username"
+                    placeholder="Joe"
+                  />
+                </div>
+                <div class="flex flex-col items-start gap-1">
+                  <label for="email" class="text-bl font-medium">Email :</label>
+                  <input
+                    type="email"
+                    class="text-bl p-3 rounded-lg w-full outline-none placeholder:text-gr"
+                    name="email"
+                    placeholder="example@gmail.com"
+                  />
+                </div>
+                <div class="flex flex-col items-start gap-1">
+                  <label for="address" class="text-bl font-medium"
+                    >Address :</label
+                  >
+                  <input
+                    type="text"
+                    class="text-bl p-3 rounded-lg w-full outline-none placeholder:text-gr"
+                    name="address"
+                    placeholder="New York, USA"
+                  />
+                </div>
+                <div class="flex flex-col items-start gap-1">
+                  <label for="description" class="text-bl font-medium"
+                    >Description :</label
+                  >
+                  <textarea
+                    name="description"
+                    class="text-bl p-3 rounded-lg w-full outline-none placeholder:text-gr"
+                  ></textarea>
+                </div>
+                <button
+                  class="bg-prim p-3 rounded-lg w-full text-par font-semibold"
+                >
+                  Submit
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Footer Credit - Bottom Left -->
+        <div class="w-full -mt-5 px-4 md:px-20 -mt-10 text-center text-left">
+          <p>©2024 Blissful Tresses Salon, All Right Reserved</p>
+        </div>
+      </footer>
+    </main>
+
+    <!-- responsive -->
+    <script src="./js/responsive-nav.js"></script>
+    <script src="./js/asideClick.js"></script>
+  </body>
+</html>
